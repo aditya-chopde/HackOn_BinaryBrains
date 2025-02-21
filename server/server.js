@@ -13,7 +13,10 @@ app.use(cors())
 
 //Getting all routes
 const patient = require("./routes/patientRoutes")
-app.use("/api/patient", patient)
+const user = require("./routes/user")
+
+app.use("/api/patient", patient);
+app.use("/api/user", user);
 
 //Connecting DB
 const connectDB = require("./connect");

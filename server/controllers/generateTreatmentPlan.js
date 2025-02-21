@@ -25,6 +25,7 @@ async function generateTreatmentPlan(userData, patientData) {
     - Age: ${userData.age}
     - Weight: ${userData.weight}
     - Height: ${userData.height}
+    - Gender: ${userData.gender}
     - Known medical history: ${medicalHistory}
     - Genetic factors: ${patientData.geneticData || "No genetic data provided"}
     - Lifestyle factors: ${lifestyle}
