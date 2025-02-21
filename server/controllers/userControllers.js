@@ -1,6 +1,7 @@
 const User = require("../models/user")
 const {setUser} = require("../auth")
-const bcrypt = require("bcrypt")
+const bcrypt = require("bcrypt");
+const Patient = require("../models/patientModel");
 
 async function handleUserSignup(req, res) {
     try {
@@ -20,7 +21,7 @@ async function handleUserSignup(req, res) {
         return res.send({ success: true, createUser, token })
 
     } catch (err) {
-        return res.send({ success: false, error: err })
+        return res.send({ success: false, error: err.message })
     }
 }
 
@@ -42,11 +43,28 @@ async function handleUserLogin(req, res) {
         return res.json({ success: true, find, token })
 
     } catch (err) {
-        return res.json({ success: false, error: err })
+        return res.json({ success: false, error: err.message })
+    }
+}
+
+async function getUserTreatmentPlans(req,res){
+    try {
+        const id = req.params.id;
+        console.log(id)
+        const findPlans = await Patient.find({user: id});
+        if(findPlans === null){
+            return res.json({success: false, message: "No plans found"})
+        }else{
+            return res.json({ success: true, findPlans })
+        }
+
+    } catch (err) {
+        return res.json({ success: false, error: err.message })
     }
 }
 
 module.exports = {
     handleUserSignup,
     handleUserLogin,
+    getUserTreatmentPlans,
 }
