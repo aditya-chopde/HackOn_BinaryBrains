@@ -46,7 +46,7 @@ const Signup = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#4b9b6e] to-[#2e7d5c] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-br from-[#6bbf84] to-[#a8d5ba] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8 bg-white p-10 rounded-xl shadow-2xl">
         <div className="text-center">
           <UserCircleIcon className="mx-auto h-20 w-20 text-[#2e7d5c]" />
