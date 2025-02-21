@@ -12,6 +12,8 @@ app.use(bodyParser.json())
 app.use(cors())
 
 //Getting all routes
+const patient = require("./routes/patientRoutes")
+app.use("/api/patient", patient)
 
 //Connecting DB
 const connectDB = require("./connect");
