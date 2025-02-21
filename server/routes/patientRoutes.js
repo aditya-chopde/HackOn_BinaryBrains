@@ -1,8 +1,7 @@
-const express = require("express")
+const express = require("express");
+const { generateReportHandler } = require("../controllers/patientControllers");
 const router = express();
 
-router.get("/", async (req, res)=>{
-    return res.json({success: true,message: "working"})
-})
+router.get("/generate-plan", generateReportHandler);
 
 module.exports = router;

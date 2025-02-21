@@ -18,7 +18,7 @@ app.use("/api/patient", patient)
 //Connecting DB
 const connectDB = require("./connect");
 connectDB("mongodb://localhost:27017/vitaGenix").then(() => {
-    console.log("DB Connected...")
+    console.log("DataBase Connected")
 })
 
 app.get("/", async (req, res)=>{

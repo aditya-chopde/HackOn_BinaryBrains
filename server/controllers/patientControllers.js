@@ -1,4 +1,5 @@
-const Patient = require("../models/");
+const Patient = require("../models/patientModel");
+const generateTreatmentPlan = require("../controllers/generateTreatmentPlan")
 
 async function generateReportHandler(req, res) {
     const patientData = req.body;
@@ -7,7 +8,7 @@ async function generateReportHandler(req, res) {
     const patient = new Patient({ ...patientData, treatmentPlan });
     await patient.save();
 
-    res.json({ treatmentPlan });
+    return res.json({ treatmentPlan });
 }
 
 module.exports = {
