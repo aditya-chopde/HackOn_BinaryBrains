@@ -20,6 +20,7 @@ const TreatmentPlan = ({ plan }) => {
 };
 
 const GeneratePlan = () => {
+  const user = localStorage.getItem("userId")
   const [formData, setFormData] = useState({  
     medicalHistory: '',
     medications: '',
@@ -28,7 +29,7 @@ const GeneratePlan = () => {
     lifestyle: '',
     symptoms: '',
     concerns: '',
-    user: "67b813f5161c8e89d687acb6",
+    user: user,
   });
 
   const [response, setResponse] = useState(null);

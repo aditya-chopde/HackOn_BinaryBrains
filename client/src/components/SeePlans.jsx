@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 const SeePlans = () => {
     const navigate = useNavigate();
     const [data, setData] = useState([])
-    const userId = "67b813f5161c8e89d687acb6";
+    const userId = localStorage.getItem("userId");
 
     async function getPlans(userId){
         await axios.get(`http://localhost:3000/api/user/plans/${userId}`).then((res)=>{

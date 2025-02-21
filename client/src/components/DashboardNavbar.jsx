@@ -6,7 +6,7 @@ const DashboardNavbar = () => {
   const navigate = useNavigate();
   return (
     <>
-      <nav className="flex flex-row justify-around py-5 bg-[#6bbf84]">
+      <nav className="flex flex-row justify-around py-5 bg-[#4b9b6e]">
         <div onClick={()=> navigate("/dashboard")} className="cursor-pointer">
           <h2 className="font-bold text-2xl text-white">VitaGenix</h2>
         </div>
