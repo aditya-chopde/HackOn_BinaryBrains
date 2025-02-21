@@ -3,7 +3,7 @@ const { GoogleGenerativeAI } = require("@google/generative-ai");
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
-async function generateTreatmentPlan(patientData) {
+async function generateTreatmentPlan(userData, patientData) {
     const medicalHistory = Array.isArray(patientData.medicalHistory)
         ? patientData.medicalHistory.join(", ")
         : patientData.medicalHistory || "No significant history";
@@ -21,8 +21,10 @@ async function generateTreatmentPlan(patientData) {
     You are an AI medical assistant helping doctors create treatment plans for patients. 
 
     Given the following patient information:
-    - Name: ${patientData.name}
-    - Age: ${patientData.age}
+    - Name: ${userData.name}
+    - Age: ${userData.age}
+    - Weight: ${userData.weight}
+    - Height: ${userData.height}
     - Known medical history: ${medicalHistory}
     - Genetic factors: ${patientData.geneticData || "No genetic data provided"}
     - Lifestyle factors: ${lifestyle}
