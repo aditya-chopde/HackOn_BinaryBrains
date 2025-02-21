@@ -22,6 +22,9 @@ const SeePlans = () => {
   return (
     <div className='w-[825px] mx-auto my-5'>
       <div>
+        <button className='bg-[#4b9b6e] text-white px-3 py-2 rounded-sm cursor-pointer transition-all hover:-translate-y-1' onClick={()=> navigate("/generate-plan")}>Generate Plan</button>
+      </div>
+      <div>
         <h1 className='text-xl font-bold my-3'>Previous Plans</h1>
       </div>
       <div>

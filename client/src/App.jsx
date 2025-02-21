@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import GeneratePlanPage from './pages/GeneratePlanPage';
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
-import SinglePlan from "./components/SinglePlan";
+import SinglePlanPage from "./pages/SinglePlanPage";
 
 function App() {
 
@@ -12,7 +12,7 @@ function App() {
         <Route path="/" element={<Home/>} />
         <Route path="/dashboard" element={<Dashboard/>} />
         <Route path="/generate-plan" element={<GeneratePlanPage/>} />
-        <Route path="/plan/:id" element={<SinglePlan/>} />
+        <Route path="/plan/:id" element={<SinglePlanPage/>} />
       </Routes>
     </Router>
   )

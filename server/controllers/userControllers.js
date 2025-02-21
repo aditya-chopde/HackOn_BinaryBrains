@@ -65,7 +65,7 @@ async function getUserTreatmentPlans(req,res){
 async function getSingleTreatmentPlan(req,res){
     try {
         const id = req.params.id;
-        const singlePlan = await Patient.findById(id);
+        const singlePlan = await Patient.find({_id: id});
         if(singlePlan === null){
             return res.json({success: false, message: "No plans found"})
         }else{

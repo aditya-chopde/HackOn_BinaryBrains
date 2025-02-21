@@ -1,11 +1,13 @@
 import React from "react";
 import { svgs } from "../assets/export";
+import { useNavigate } from "react-router-dom";
 
 const DashboardNavbar = () => {
+  const navigate = useNavigate();
   return (
     <>
       <nav className="flex flex-row justify-around mt-10">
-        <div>
+        <div onClick={()=> navigate("/dashboard")} className="cursor-pointer">
           <h2 className="font-bold text-2xl">VitaGenix</h2>
         </div>
         <div>
