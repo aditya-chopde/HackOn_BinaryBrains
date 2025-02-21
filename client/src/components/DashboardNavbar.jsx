@@ -6,7 +6,7 @@ const DashboardNavbar = () => {
     <>
       <nav className="flex flex-row justify-around mt-10">
         <div>
-          <h2 className="font-bold text-xl">VitaGenix</h2>
+          <h2 className="font-bold text-2xl">VitaGenix</h2>
         </div>
         <div>
             <ul>
