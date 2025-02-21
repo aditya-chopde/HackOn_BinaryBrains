@@ -18,7 +18,7 @@ async function generateTreatmentPlan(userData, patientData) {
 
     // **🛠 NEW: Adjusted prompt to avoid recitation**
     const prompt = `
-    You are an AI medical assistant helping doctors create treatment plans for patients. 
+    You are an AI medical assistant helping doctors and users create treatment plans for themselves and for their patients. 
 
     Given the following patient information:
     - Name: ${userData.name}
@@ -37,7 +37,7 @@ async function generateTreatmentPlan(userData, patientData) {
     2. Possible risk factors to watch for
     3. Any recommended medical tests or follow-ups
 
-    The response should be **advisory in nature** and should not contain medical prescriptions.
+    The response should be **advisory in nature** and should not contain medical prescriptions also add some relevant emojis that looks professional when seeing the plan.
     `;
 
     try {
