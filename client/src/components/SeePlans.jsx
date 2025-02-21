@@ -20,7 +20,7 @@ const SeePlans = () => {
     })
     
   return (
-    <div className='w-[825px] mx-auto my-5'>
+    <div className='w-[825px] mx-auto my-10'>
       <div>
         <button className='bg-[#4b9b6e] text-white px-3 py-2 rounded-sm cursor-pointer transition-all hover:-translate-y-1' onClick={()=> navigate("/generate-plan")}>Generate Plan</button>
       </div>
@@ -31,7 +31,7 @@ const SeePlans = () => {
         {data.map((item)=>[
             <div key={item._id} className='cursor-pointer my-1 flex flex-row gap-2 group' onClick={()=> navigate(`/plan/${item._id}`)}>
                 <img src={svgs.arrow_right} alt="arrow_right" className='w-5 group-hover:-rotate-90 transition-all '/>
-                <p className=''>{(item.treatmentPlan).split(" ").slice(0, 10).join(" ") + "..."}</p>
+                <p className=''>{(item.treatmentPlan).split(" ").slice(0, 12).join(" ") + "..."}</p>
             </div>
         ])}
       </div>

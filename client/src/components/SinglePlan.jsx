@@ -7,8 +7,8 @@ const SinglePlan = () => {
   
   const formatText = (text = "") => {
     return text
-      .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") // Bold text
-      .replace(/\n/g, "<br/>"); // Preserve line breaks
+      .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") 
+      .replace(/\n/g, "<br/>"); 
   };
 
   const [data, setData] = useState(null);
@@ -26,7 +26,7 @@ const SinglePlan = () => {
 
   useEffect(() => {
     getPlan(id);
-  }, [id]); // ✅ Run only when id changes
+  }, [id]); 
 
   return (
     <div>

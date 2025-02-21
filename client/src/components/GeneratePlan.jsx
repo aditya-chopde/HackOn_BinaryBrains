@@ -109,8 +109,8 @@ const GeneratePlan = () => {
             disabled={isLoading}
             className={`w-full px-6 py-3 border border-transparent rounded-md 
                       shadow-sm text-white font-medium bg-[#4b9b6e] hover:bg-[#6bbf84]
-                      focus:outline-none focus:ring-2 focus:ring-[#6bbf84] cursor-pointer hover:-translate-y-1
-                      transition duration-300 ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                      focus:outline-none focus:ring-2 focus:ring-[#6bbf84] hover:-translate-y-1
+                      transition duration-300 ${isLoading ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
           >
             {isLoading ? 'Generating Plan...' : 'Generate Personalized Plan'}
           </button>
