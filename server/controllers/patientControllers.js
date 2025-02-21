@@ -10,7 +10,7 @@ async function generateReportHandler(req, res) {
     const patient = new Patient({ ...patientData, treatmentPlan });
     await patient.save();
 
-    return res.json({ treatmentPlan });
+    return res.json({ id: patient._id, treatmentPlan });
 }
 
 module.exports = {

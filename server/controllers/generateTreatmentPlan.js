@@ -18,7 +18,7 @@ async function generateTreatmentPlan(userData, patientData) {
 
     // **🛠 NEW: Adjusted prompt to avoid recitation**
     const prompt = `
-    You are an AI medical assistant helping doctors and users create treatment plans for themselves and for their patients. 
+    You are an AI medical assistant helping doctors and users create treatment plans for themselves and for their patients, don't add any other extra text in the plan just give me the main content of the plan . 
 
     Given the following patient information:
     - Name: ${userData.name}

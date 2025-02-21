@@ -1,7 +1,25 @@
 import React, { useState } from 'react';
 
+const TreatmentPlan = ({ plan }) => {
+  const formatText = (text) => {
+    return text
+      .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") // Bold text
+      .replace(/\n/g, "<br/>"); // Preserve line breaks
+  };
+
+  return (
+    <div className="mt-6 p-6 bg-white border border-gray-200 rounded-lg shadow-sm">
+      <h2 className="text-xl font-semibold mb-4 text-gray-800">🌟 Personalized Treatment Plan</h2>
+      <div
+        className="text-gray-700 leading-relaxed"
+        dangerouslySetInnerHTML={{ __html: formatText(plan) }}
+      ></div>
+    </div>
+  );
+};
+
 const GeneratePlan = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState({  
     medicalHistory: '',
     medications: '',
     allergies: '',
@@ -40,7 +58,7 @@ const GeneratePlan = () => {
       }
 
       const data = await response.json();
-      setResponse(data);
+      setResponse(data.treatmentPlan);  // Assuming `treatmentPlan` is a string
     } catch (err) {
       setError(err.message);
     } finally {
@@ -59,9 +77,9 @@ const GeneratePlan = () => {
   ];
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-gray-50 rounded-xl shadow-lg">
+    <div className="max-w-4xl mx-auto p-6 bg-gray-50 rounded-xl shadow-lg mt-15">
       <h1 className="text-3xl font-bold text-gray-800 mb-8 text-center">
-        Health Assessment Form
+        🏥 Health Assessment Form
       </h1>
 
       <form onSubmit={handleSubmit} className="space-y-6">
@@ -71,14 +89,14 @@ const GeneratePlan = () => {
               <label className="block text-sm font-medium text-gray-700">
                 {field.label}
               </label>
-              <textarea
+              <input
                 name={field.name}
                 value={formData[field.name]}
                 onChange={handleChange}
                 placeholder={field.placeholder}
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm 
                          focus:border-indigo-500 focus:ring-indigo-500 
-                         transition duration-300 h-32 p-3"
+                         transition duration-300 h-13 p-3"
               />
             </div>
           ))}
@@ -93,25 +111,18 @@ const GeneratePlan = () => {
                       focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500
                       transition duration-300 ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
           >
-            {isLoading ? 'Generating Assessment...' : 'Generate Health Assessment'}
+            {isLoading ? '🩺 Generating Assessment...' : '📝 Generate Health Assessment'}
           </button>
         </div>
       </form>
 
       {error && (
         <div className="mt-6 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
-          Error: {error}
+          ❌ Error: {error}
         </div>
       )}
 
-      {response && (
-        <div className="mt-6 p-6 bg-white border border-gray-200 rounded-lg shadow-sm">
-          <h2 className="text-xl font-semibold mb-4">Assessment Results:</h2>
-          <pre className="whitespace-pre-wrap font-sans">
-            {JSON.stringify(response, null, 2)}
-          </pre>
-        </div>
-      )}
+      {response && <TreatmentPlan plan={response} />}
     </div>
   );
 };
