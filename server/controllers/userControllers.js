@@ -50,7 +50,6 @@ async function handleUserLogin(req, res) {
 async function getUserTreatmentPlans(req,res){
     try {
         const id = req.params.id;
-        console.log(id)
         const findPlans = await Patient.find({user: id});
         if(findPlans === null){
             return res.json({success: false, message: "No plans found"})
@@ -63,8 +62,24 @@ async function getUserTreatmentPlans(req,res){
     }
 }
 
+async function getSingleTreatmentPlan(req,res){
+    try {
+        const id = req.params.id;
+        const singlePlan = await Patient.findById(id);
+        if(singlePlan === null){
+            return res.json({success: false, message: "No plans found"})
+        }else{
+            return res.json({ success: true, singlePlan })
+        }
+
+    } catch (err) {
+        return res.json({ success: false, error: err.message })
+    }
+}
+
 module.exports = {
     handleUserSignup,
     handleUserLogin,
     getUserTreatmentPlans,
+    getSingleTreatmentPlan,
 }
